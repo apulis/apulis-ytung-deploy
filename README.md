@@ -23,10 +23,10 @@
   repo: https://github.com/apulis/AIArts-Backend  
 
 - data-platform-backend  
-  repo: (not open source yet)
+  repo: https://github.com/apulis/data-platform-backend  
 
 - data-platform-frontend  
-  repo: https://github.com/apulis/image-label-frontend
+  repo: https://github.com/apulis/image-label-frontend  
 
 - jobmanager2   
   repo: https://github.com/apulis/apulis_platform/tree/v1.5.0/src/ClusterBootstrap   
@@ -76,24 +76,24 @@ pip install --user ansible
 After installation, then check ansible version by command ```ansbible --version```,  and make sure ```version >= 2.9.*```
 
 ### Configuration file modification
- - hosts file which named ```hosts``` in root path, and then modify by use enviroment:
-   1、enter ip address of k8s cluster's master node into [kube-master]
-   2、enter ip address of k8s cluster's worder node into [kube-worker]. If there are multiple nodes, enter each ip in a new line.
+ - hosts file which named ```hosts``` in root path, and then modify by use enviroment:  
+   1、enter ip address of k8s cluster's master node into [kube-master]  
+   2、enter ip address of k8s cluster's worder node into [kube-worker]. If there are multiple nodes, enter each ip in a new line.  
 
- - all.yaml file
-   file path：group_vars/all.yaml
+ - all.yaml file  
+   file path：group_vars/all.yaml   
 
-   Configuration :
-   1、project name：PROJECT_NAME: "huawei"，this name will be used as a project name for cluster image name prefix
-   2、for all mirrors, modification of name or tag is not suggested.(including basic mirror and service mirror)
+   Configuration :  
+   1、project name：PROJECT_NAME: "huawei"，this name will be used as a project name for cluster image name prefix   
+   2、for all mirrors, modification of name or tag is not suggested.(including basic mirror and service mirror)  
 
- - cluster.yaml file
-   file path：group_vars/all.yaml
+ - cluster.yaml file  
+   file path：group_vars/all.yaml  
    
-   configuration:
-   1、kube vip path：```kube_vip_address: "192.168.3.9"``` （use master's ip address）
+   configuration:  
+   1、kube vip path：```kube_vip_address: "192.168.3.9"``` （use master's ip address）   
 
-### Execute command for deployment
+### Execute command for deployment  
  - ansible-playbook -i hosts 06.kube-init.yaml
  - ansible-playbook -i hosts 08.network.yaml
  - ansible-playbook -i hosts 09.storage.yaml
