@@ -56,30 +56,46 @@
   
 
 # Service Deployment
-### Configuration file modification
- - hosts file   
-   file path：apulis-ytung-deploy/hosts   
 
-   configuration process  
+### Setup Ansible tools
+* install by apt
+```
+apt update
+apt install software-properties-common
+apt-add-repository --yes --update ppa:ansible/ansible
+apt install ansible
+```
+
+* install by python pip
+```
+pip config set global.index-url https://mirrors.aliyun.com/pypi/simple && \
+pip config set install.trusted-host mirrors.aliyun.com
+pip install --user ansible
+```
+
+After installation, then check ansible version by command ```ansbible --version```,  and make sure ```version >= 2.9.*```
+
+### Configuration file modification
+ - hosts file which named ```hosts``` in root path, and then modify by use enviroment:
    1、enter ip address of k8s cluster's master node into [kube-master]
    2、enter ip address of k8s cluster's worder node into [kube-worker]. If there are multiple nodes, enter each ip in a new line.
 
- - all.yaml file  
-   file path：apulis-ytung-deploy/group_vars/all.yaml  
+ - all.yaml file
+   file path：group_vars/all.yaml
 
-   Configuration process   
-   1、project name：PROJECT_NAME: "huawei"，this name will be used as a project name for cluster harbor mirror
-   2、for all mirrors, modification of name or tag is not suggested.(including basic mirror and service mirror)  
+   Configuration :
+   1、project name：PROJECT_NAME: "huawei"，this name will be used as a project name for cluster image name prefix
+   2、for all mirrors, modification of name or tag is not suggested.(including basic mirror and service mirror)
 
- - cluster.yaml file  
-   file path：apulis-ytung-deploy/group_vars/all.yaml  
+ - cluster.yaml file
+   file path：group_vars/all.yaml
    
-   configuration process
-   1、kube vip path：kubevipaddress: "192.168.3.9" （use master's ip address）
+   configuration:
+   1、kube vip path：```kube_vip_address: "192.168.3.9"``` （use master's ip address）
 
 ### Execute command for deployment
- - ansible-playbook -i hosts 06.kube-init.yaml  
- - ansible-playbook -i hosts 08.network.yaml     
- - ansible-playbook -i hosts 09.storage.yaml  
- - ansible-playbook -i hosts 10.aiarts-service.yaml    
+ - ansible-playbook -i hosts 06.kube-init.yaml
+ - ansible-playbook -i hosts 08.network.yaml
+ - ansible-playbook -i hosts 09.storage.yaml
+ - ansible-playbook -i hosts 10.aiarts-service.yaml
 
