@@ -10,39 +10,39 @@
 
 # 镜像编译
 ### apulis镜像
-- custom-user-dashboard-frontend
-  repo: https://github.com/apulis/user-dashboard-frontend
+- custom-user-dashboard-frontend  
+  repo: https://github.com/apulis/user-dashboard-frontend  
   
-- custom-user-dashboard-backend
-  repo: https://github.com/apulis/user-dashboard-backend
+- custom-user-dashboard-backend  
+  repo: https://github.com/apulis/user-dashboard-backend  
 
-- aiarts-frontend 
-  repo: https://github.com/apulis/AIArts-Frontend
+- aiarts-frontend   
+  repo: https://github.com/apulis/AIArts-Frontend  
 
-- aiarts-backend 
-  repo: https://github.com/apulis/AIArts-Backend
+- aiarts-backend   
+  repo: https://github.com/apulis/AIArts-Backend  
 
-- data-platform-backend
-  repo: 未开源
+- data-platform-backend  
+  repo: 未开源   
 
-- data-platform-frontend
-  repo: 未知
+- data-platform-frontend  
+  repo: 未知  
 
-- jobmanager2
-  repo: 未知
+- jobmanager2   
+  repo: https://github.com/apulis/apulis_platform/tree/v1.5.0/src/ClusterBootstrap   
+  setp: ./deploy.py docker build restfulapi2   
 
-- kfserving
-  repo: 未知
+- kfserving  
+  repo: 未知  
 
+- openresty   
+  repo: https://github.com/apulis/apulis_platform/tree/v1.5.0/src/docker-images/openresty 
 
-- openresty
-  repo: 
+- a910-device-plugin   
+  repo: https://github.com/apulis/ascend-device-plugin  
 
-- a910-device-plugin 
-  repo: 
-
-- volcanosh
-  repo: 
+- volcanosh  
+  repo: https://github.com/apulis/ascend-for-volcano  
 
 ### 第三方镜像
   
