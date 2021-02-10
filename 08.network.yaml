@@ -2,6 +2,5 @@
 - hosts:
     - kube-master
     - kube-worker
-    - ceph-server
   roles:
     - kube-vip

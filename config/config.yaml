@@ -1,0 +1,39 @@
+# Project Name
+PROJECT_NAME: "sz_gongdianju"
+
+PLATFORM_NAME: "Apulis"
+
+# the name of cluster
+CLUSTER_NAME: "DLWS"
+
+# 离线安装系统软件包 (offline|online)
+INSTALL_SOURCE: "online"
+
+# Binaries Directory
+i18n: "zh-CN"
+
+# kube vip address
+kube_vip_address: "192.168.1.154"
+
+nfs_path_prefix: /mnt/local/
+
+inventory:
+  etcd:
+    - host: "192.168.1.154"
+      vars:
+        - NODE_NAME=etcd1
+  master:
+    - host: "192.168.1.154"
+      vars:
+        - RENDER_SERVICE=yes
+  worker:
+    - host: "192.168.1.154"
+      vars:
+        - RENDER_SERVICE=yes
+  nfs:
+    - host: "192.168.1.154"
+  harbor:
+    host: "192.168.1.154"
+    vars:
+      - NEW_INSTALL=yes
+      - SELF_SIGNED_CERT=yes
