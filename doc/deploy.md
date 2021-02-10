@@ -26,17 +26,20 @@
   repo: 未开源   
 
 - data-platform-frontend  
-  repo: 未知  
+  repo: https://github.com/apulis/image-label-frontend
 
 - jobmanager2   
   repo: https://github.com/apulis/apulis_platform/tree/v1.5.0/src/ClusterBootstrap   
-  setp: ./deploy.py docker build restfulapi2   
+  build cmd: ./deploy.py docker build restfulapi2   
 
 - kfserving  
-  repo: 未知  
+  repo: https://apulis-gitlab.apulis.cn/apulis/DLWorkspace/-/tree/develop/src/docker-images/kfserving
 
 - openresty   
   repo: https://github.com/apulis/apulis_platform/tree/v1.5.0/src/docker-images/openresty 
+
+- init-container 
+  repo: https://github.com/apulis/DLWorkspace/tree/master/src/docker-images/init-container
 
 - a910-device-plugin   
   repo: https://github.com/apulis/ascend-device-plugin  
@@ -45,6 +48,11 @@
   repo: https://github.com/apulis/ascend-for-volcano  
 
 ### 第三方镜像
+- grafana   
+  repo: https://github.com/apulis/apulis_platform/tree/v1.5.0/src/docker-images/grafana  
+  
+- visualjob
+  repo: https://github.com/apulis/DLWorkspace/tree/master/src/docker-images/visual-job 
   
 
 # 服务部署
