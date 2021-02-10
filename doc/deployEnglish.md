@@ -1,15 +1,15 @@
-# 依赖准备
+# Dependency Preparation
 
-### 系统准备
-- 系统安装盘下载链接: http://old-releases.ubuntu.com/releases/18.04.1/
-- 系统安装链接: https://support.huawei.com/enterprise/zh/doc/EDOC1100136592/426cffd9
+### System preparation
+- System installation package download link: http://old-releases.ubuntu.com/releases/18.04.1/
+- System installation link: https://support.huawei.com/enterprise/zh/doc/EDOC1100136592/426cffd9
 
-### 驱动准备
-- 驱动下载链接：https://ascend.huawei.com/#/hardware/firmware-drivers
-- 驱动安装链接：https://support.huaweicloud.com/instg-msInstall-cann202/atlasms_03_0002.html
+### Driver preparation
+- Driver download link：https://ascend.huawei.com/#/hardware/firmware-drivers
+- Driver installation link：https://support.huaweicloud.com/instg-msInstall-cann202/atlasms_03_0002.html
 
-# 镜像编译
-### apulis镜像
+# Mirror compilation
+### apulis mirror
 - custom-user-dashboard-frontend  
   repo: https://github.com/apulis/user-dashboard-frontend  
   
@@ -23,7 +23,7 @@
   repo: https://github.com/apulis/AIArts-Backend  
 
 - data-platform-backend  
-  repo: 未开源   
+  repo: (not open source yet)
 
 - data-platform-frontend  
   repo: https://github.com/apulis/image-label-frontend
@@ -47,7 +47,7 @@
 - volcanosh  
   repo: https://github.com/apulis/ascend-for-volcano  
 
-### 第三方镜像
+### Third party Mirror
 - grafana   
   repo: https://github.com/apulis/apulis_platform/tree/v1.5.0/src/docker-images/grafana  
   
@@ -55,28 +55,29 @@
   repo: https://github.com/apulis/DLWorkspace/tree/master/src/docker-images/visual-job 
   
 
-# 服务部署
-### 修改配置文件
- - hosts文件   
-   文件路径：apulis-ytung-deploy/hosts   
+# Service Deployment
+### Configuration file modification
+ - hosts file   
+   file path：apulis-ytung-deploy/hosts   
 
-   配置步骤   
-   1、在 [kube-master] 下填写k8s集群的master节点（ip）  
-   2、在 [kube-worker] 下填写k8s集群的worker节点（ip）。有多个worker节点时，直接换行填写即可。  
- - all.yaml文件  
-   文件路径：apulis-ytung-deploy/group_vars/all.yaml  
+   configuration process  
+   1、enter ip address of k8s cluster's master node into [kube-master]
+   2、enter ip address of k8s cluster's worder node into [kube-worker]. If there are multiple nodes, enter each ip in a new line.
 
-   配置步骤   
-   1、项目名称：PROJECT_NAME: "huawei"，这个名称将作为集群harbor保存镜像的项目名称   
-   2、每个镜像的name和tag（包括基础镜像和服务镜像）。建议保持不变。  
+ - all.yaml file  
+   file path：apulis-ytung-deploy/group_vars/all.yaml  
 
- - cluster.yaml文件  
-   文件路径：apulis-ytung-deploy/group_vars/all.yaml  
+   Configuration process   
+   1、project name：PROJECT_NAME: "huawei"，this name will be used as a project name for cluster harbor mirror
+   2、for all mirrors, modification of name or tag is not suggested.(including basic mirror and service mirror)  
+
+ - cluster.yaml file  
+   file path：apulis-ytung-deploy/group_vars/all.yaml  
    
-   配置步骤  
-   1、kube vip地址：kubevipaddress: "192.168.3.9" （使用master的ip即可）
+   configuration process
+   1、kube vip path：kubevipaddress: "192.168.3.9" （use master's ip address）
 
-### 执行部署
+### execute deployment
  - ansible-playbook -i hosts 06.kube-init.yaml  
  - ansible-playbook -i hosts 08.network.yaml     
  - ansible-playbook -i hosts 09.storage.yaml  
