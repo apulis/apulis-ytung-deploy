@@ -1,7 +1,14 @@
-- hosts: nfs-server
-  roles:
-    - { role: 'nfs', nfs_mode: 'server', when: "CLUSTER_STORAGE == 'nfs'" }
+- hosts: localhost
+  tasks:
+    - name: generate pvc and pv service yaml files
+      template:
+        lstrip_blocks: yes
+        trim_blocks: yes
+        dest: "{{ manifest_dest }}/storage/{{item}}"
+        src: "{{item}}.j2"
+      with_items:
+        - 01.appdata-pv.yaml
+        - 02.component-data-pv.yaml
+        - 03.labeldata-pv.yaml
+        - 04.modeldata-pv.yaml
 
-- hosts: ceph-server
-  roles:
-    - { role: "rook-ceph", when: "CLUSTER_STORAGE == 'ceph'" }

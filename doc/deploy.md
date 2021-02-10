@@ -56,3 +56,29 @@
   
 
 # 服务部署
+### 修改配置文件
+ - hosts文件   
+   文件路径：apulis-ytung-deploy/hosts   
+
+   配置步骤   
+   1、在 [kube-master] 下填写k8s集群的master节点（ip）  
+   2、在 [kube-worker] 下填写k8s集群的worker节点（ip）。有多个worker节点时，直接换行填写即可。  
+ - all.yaml文件  
+   文件路径：apulis-ytung-deploy/group_vars/all.yaml  
+
+   配置步骤   
+   1、项目名称：PROJECT_NAME: "huawei"，这个名称将作为集群harbor保存镜像的项目名称   
+   2、每个镜像的name和tag（包括基础镜像和服务镜像）。建议保持不变。  
+
+ - cluster.yaml文件  
+   文件路径：apulis-ytung-deploy/group_vars/all.yaml  
+   
+   配置步骤  
+   1、kube vip地址：kubevipaddress: "192.168.3.9" （使用master的ip即可）
+
+### 执行部署
+ - ansible-playbook -i hosts 06.kube-init.yaml  
+ - ansible-playbook -i hosts 08.network.yaml     
+ - ansible-playbook -i hosts 09.storage.yaml  
+ - ansible-playbook -i hosts 10.aiarts-service.yaml    
+
