@@ -77,7 +77,7 @@
    configuration process
    1、kube vip path：kubevipaddress: "192.168.3.9" （use master's ip address）
 
-### Execute deployment command
+### Execute command for deployment
  - ansible-playbook -i hosts 06.kube-init.yaml  
  - ansible-playbook -i hosts 08.network.yaml     
  - ansible-playbook -i hosts 09.storage.yaml  
