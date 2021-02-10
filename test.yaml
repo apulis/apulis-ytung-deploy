@@ -1,8 +1,0 @@
-- hosts: kube-master
-  tasks:
-    - name: Generate an OpenSSH keypair with the default values (4096 bits, rsa)
-      debug:
-        var: "{{ ansible_env['SSH_CLIENT'].split() | first }}"
-
-    - debug:
-        var: "ignore"
