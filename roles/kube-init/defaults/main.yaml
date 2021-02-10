@@ -1,0 +1,29 @@
+dns_install: "yes"
+dns_backend: "coredns"
+
+CLUSTER_DNS_SVC_IP: "{{ SERVICE_CIDR | ipaddr('net') | ipaddr(2) | ipaddr('address') }}"
+
+user_name: dlwsadmin
+
+group_labels:
+  - group: kube-master
+    labels:
+      - mysql=active
+      - postgres=active
+      - grafana=active
+      - prometheus=active
+      - aiarts-backend=active
+      - aiarts-frontend=active
+      - alert-manager=active
+      - image-label=active
+      - jobmanager=active
+      - restfulapi=active
+      - webui=active
+      - nginx=active
+      - watchdog=active
+      - webportal=active
+      - mlflow=active
+  - group: kube-worker
+    labels:
+      - worker=active
+      - FragmentGPUJob=active

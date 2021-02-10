@@ -1,0 +1,17 @@
+- name: Ensure storage yaml directories to exist
+  file:
+    path: "{{ manifest_dest }}/storage/"
+    state: directory
+
+- name: generate pvc and pv service yaml files
+  template:
+    lstrip_blocks: yes
+    trim_blocks: yes
+    dest: "{{ manifest_dest }}/storage/{{item}}"
+    src: "{{item}}.j2"
+  with_items:
+    - 01.appdata-pv.yaml
+    - 02.component-data-pv.yaml
+    - 03.labeldata-pv.yaml
+    - 04.modeldata-pv.yaml
+
